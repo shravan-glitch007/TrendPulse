@@ -66,7 +66,6 @@ trendpulse_task2_data_cleaning.ipynb
 cleaned_trends.csv
 trendpulse_task3_analysis_ml.ipynb
 trendpulse_ml_features.csv
-README.md
 ```
 
 ---
