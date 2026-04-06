@@ -1,119 +1,109 @@
-# 🚀 TrendPulse — Real-Time Trend Analysis & ML-Based Category Prediction
+# 🚀 TrendPulse — Real-Time Hacker News Trend Analyzer
 
-TrendPulse is an end-to-end data pipeline that collects, processes, and analyzes trending posts from Hacker News. The project applies feature engineering and machine learning to classify posts into categories and extract insights from real-time data.
+## 📌 Overview
+
+TrendPulse is an end-to-end data pipeline and machine learning project that collects, processes, analyzes, and classifies trending stories from Hacker News.
+The project extracts real-time data, performs feature engineering, and applies machine learning to predict content categories and identify trending posts.
 
 ---
 
-## 📌 Project Workflow
-
-This project follows a structured pipeline:
+## ⚙️ Project Pipeline
 
 1. **Data Collection**
 
-   * `trendpulse_task1_data_collection.ipynb`
-   * Collects real-time trending posts using Hacker News API
+   * Fetched real-time Hacker News data using REST API
+   * Stored raw data in JSON format
+   * Example: 
 
-2. **Raw Data Storage**
+2. **Data Cleaning**
 
-   * `trends.json`
-   * Stores collected raw data
+   * Removed null and duplicate records
+   * Standardized columns and formats
+   * Converted raw JSON into structured dataset
 
-3. **Data Cleaning & Preprocessing**
+3. **Feature Engineering**
 
-   * `trendpulse_task2_data_cleaning.ipynb`
-   * Cleans missing values, removes duplicates, and structures data
+   * Created new features:
 
-4. **Cleaned Dataset**
+     * `title_length`
+     * `engagement (score + comments)`
+     * `comments_to_score_ratio`
 
-   * `cleaned_trends.csv`
-   * Ready for analysis and machine learning
+4. **Exploratory Data Analysis (EDA)**
 
-5. **Feature Engineering & ML**
+   * Analyzed category distribution
+   * Identified top trending posts
+   * Visualized insights using Matplotlib
 
-   * `trendpulse_task3_analysis_ml.ipynb`
-   * Creates features and trains ML model
+5. **Machine Learning Model**
 
-6. **Final Output**
+   * Converted text data using TF-IDF vectorization
+   * Trained classification models:
 
-   * `trendpulse_ml_features.csv`
-   * Contains engineered features + predicted categories
+     * Logistic Regression
+     * Naive Bayes
+   * Predicted categories for news titles
 
----
+6. **Model Evaluation**
 
-## ⚙️ Tech Stack
+   * Accuracy score
+   * Classification report
+   * Confusion matrix
 
-* Python
-* Pandas
-* Matplotlib
-* Scikit-learn
-* TF-IDF (Text Feature Extraction)
-* Logistic Regression
+7. **Final Output**
 
----
-
-## 🧠 Key Features
-
-* Real-time data collection from Hacker News API
-* Data cleaning and preprocessing pipeline
-* Feature engineering:
-
-  * Title length
-  * Engagement score (score + comments)
-  * Comments-to-score ratio
-* Text vectorization using TF-IDF
-* Category prediction using Logistic Regression
-* Model evaluation using accuracy and classification report
-* Prediction on new unseen titles
+   * Generated dataset with predictions and features
+   * Stored in `trendpulse_ml_features.csv`
 
 ---
 
 ## 📂 Project Structure
 
-TrendPulse
-
-│
-├── trendpulse_task1_data_collection.ipynb
-├── trends.json│
-
-├── trendpulse_task2_data_cleaning.ipynb
-├── cleaned_trends.csv│
-
-├── trendpulse_task3_analysis_ml.ipynb
-├── trendpulse_ml_features.csv
-
+```
+trendpulse_task1_data_collection.ipynb
+trends.json
+trendpulse_task2_data_cleaning.ipynb
+cleaned_trends.csv
+trendpulse_task3_analysis_ml.ipynb
+trendpulse_ml_features.csv
+README.md
+```
 
 ---
 
-## 📊 Model Details
+## 🛠️ Tech Stack
 
-* Input: Post titles
-* Output: Category prediction
-* Feature Extraction: TF-IDF
-* Algorithm: Logistic Regression
-
----
-
-## 📈 Results
-
-* Built a complete end-to-end ML pipeline
-* Generated predictions for all posts
-* Converted raw data into structured, insight-driven output
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Scikit-learn
+* REST APIs
 
 ---
 
-## 🎯 Learning Outcomes
+## 📊 Key Features
 
-* Developed a full data pipeline (collection → cleaning → ML)
-* Applied NLP techniques for text classification
-* Performed feature engineering on real-world data
-* Evaluated model performance using standard metrics
+* Real-time data pipeline
+* Feature engineering for trend detection
+* Text classification using ML
+* Trend ranking based on engagement
+* Model evaluation and prediction analysis
+
+---
+
+## 🎯 Results
+
+* Successfully classified news into categories using ML
+* Identified top trending posts based on engagement
+* Built a complete end-to-end ML workflow
 
 ---
 
 ## 🚀 Future Improvements
 
-* Improve accuracy using advanced ML models
-* Add sentiment analysis
-* Build a real-time dashboard
-* Deploy as a web application
+* Improve model accuracy using advanced NLP (BERT, LSTM)
+* Combine text + numerical features
+* Build a dashboard (Streamlit / Flask)
+* Deploy as a real-time web application
 
